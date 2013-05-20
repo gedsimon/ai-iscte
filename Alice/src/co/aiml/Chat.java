@@ -20,7 +20,7 @@ public class Chat extends JFrame implements ActionListener, KeyListener {
 
     public static final String END = "bye";
     // demo frame for testing
-    private String text = "Hello....";
+    private String text = "Ola....";
     private JTextArea screen = new JTextArea();
     private JScrollPane jscreen = new JScrollPane(screen);
     private JPanel jpinput = new JPanel();
