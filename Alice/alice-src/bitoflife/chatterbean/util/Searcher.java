@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -85,8 +85,7 @@ public class Searcher implements FilenameFilter
     InputStream[] files = new InputStream[names.length];
     for (int i = 0, n = names.length; i < n; i++)
       files[i] = new FileInputStream(names[i]);
-    
-    
+
     return files;
   }
   

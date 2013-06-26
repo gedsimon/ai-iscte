@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -52,8 +52,7 @@ public class ReflectionHandler extends DefaultHandler
   {
     try
     {
-      String methodName = "end" + qname.substring(0, 1).toUpperCase() + qname.substring(1);
-    	//String methodName = "end" + qname.substring(0, 1) + qname.substring(1); 
+      String methodName = "end" + qname.substring(0, 1).toUpperCase() + qname.substring(1); 
       Method event = builder.getClass().getMethod(methodName);
       event.invoke(builder);
     }
@@ -71,7 +70,6 @@ public class ReflectionHandler extends DefaultHandler
     try
     {
       String methodName = "start" + qname.substring(0, 1).toUpperCase() + qname.substring(1); 
-    	//String methodName = "start" + qname.substring(0, 1) + qname.substring(1); 
       Method event = builder.getClass().getMethod(methodName, Attributes.class);
       event.invoke(builder, attributes);
     }

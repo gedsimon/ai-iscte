@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -83,7 +83,7 @@ public class TemplateElement implements AIMLElement
     StringBuilder value = new StringBuilder();
     for (TemplateElement i : children)
       value.append(i.process(match));
-
+    
     return value.toString();
   }
 

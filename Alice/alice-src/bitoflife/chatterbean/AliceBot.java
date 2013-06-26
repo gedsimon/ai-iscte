@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2004 H�lio Perroni Filho
+Copyleft (C) 2004 H�lio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -77,7 +77,7 @@ public class AliceBot
     {
       Match match = new Match(this, sentence, that, topic);
       Category category = graphmaster.match(match);
-      response.append(category.process(match)); // adding respon
+      response.append(category.process(match));
     }
   }
 
@@ -100,10 +100,8 @@ public class AliceBot
     context.appendRequest(request);
 
     Response response = new Response();
-    for(Sentence sentence : request.getSentences()){
+    for(Sentence sentence : request.getSentences())
       respond(sentence, that, topic, response);
-      //System.out.println(response);
-    }
     context.appendResponse(response);
 
     return response;
@@ -119,7 +117,7 @@ public class AliceBot
   public String respond(String input)
   {
     Response response = respond(new Request(input));
-    return response.trimOriginal(); //去掉首位空格
+    return response.trimOriginal();
   }
   
   /*

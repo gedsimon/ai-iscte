@@ -5,5 +5,6 @@
 	<classpathentry kind="src" path="alice-src"/>
 	<classpathentry kind="lib" path="lib/bsh.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="lib/java-plugin-1.6.0.23.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

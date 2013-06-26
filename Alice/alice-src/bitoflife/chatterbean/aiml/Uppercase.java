@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -40,8 +40,7 @@ public class Uppercase extends TemplateElement
   {
     String result = super.process(match);
     if (result != null)
-      //return result.toUpperCase();
-    	return result;
+      return result.toUpperCase();
     else
       return "";
   }

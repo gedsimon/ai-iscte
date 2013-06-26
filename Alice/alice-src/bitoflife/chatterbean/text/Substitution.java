@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -74,7 +74,6 @@ public class Substitution
     {
       token = input.get(index);
       TOKEN = token.toUpperCase();
-      //TOKEN = token;
       return (TOKEN.indexOf(find) == 0); 
     }
     
@@ -97,7 +96,6 @@ public class Substitution
     {
       token = input.get(index);
       TOKEN = token.toUpperCase();
-      //TOKEN = token;
       return TOKEN.endsWith(find); 
     }
     
@@ -175,7 +173,6 @@ public class Substitution
       operation = new FindReplaceWord();
     
     find = find.toUpperCase().trim();
-    //find = find.trim();
   }
   
   /*

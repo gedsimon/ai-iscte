@@ -104,7 +104,6 @@ public class Sentence
       endIndex = n - 1;
 
     String value = original.substring(mappings[beginIndex], mappings[endIndex] + 1);
-    
     value = value.replaceAll("^[^A-Za-z0-9]+|[^A-Za-z0-9]+$", " ");
     return value;
   }

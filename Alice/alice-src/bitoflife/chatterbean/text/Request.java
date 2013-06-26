@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 H�lio Perroni Filho
+Copyleft (C) 2005 H�lio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -76,7 +76,7 @@ public class Request
   
   public String trimOriginal()
   {
-    return original.trim(); //去掉首位空格
+    return original.trim();
   }
   
   /*

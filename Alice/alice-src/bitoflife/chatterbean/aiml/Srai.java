@@ -44,18 +44,17 @@ public class Srai extends TemplateElement
   
   public String process(Match match)
   {
-//    String request = super.process(match);
-//
-//    try
-//    {
-//      AliceBot bot = (match != null ? match.getCallback() : null);
-//      return (bot != null ? bot.respond(request) : "");
-//    }
-//    catch (Exception e)
-//    {
-//      throw new RuntimeException("While trying to respond \"" + request + "\"", e);
-//    }
-	  return "";
+    String request = super.process(match);
+
+    try
+    {
+      AliceBot bot = (match != null ? match.getCallback() : null);
+      return (bot != null ? bot.respond(request) : "");
+    }
+    catch (Exception e)
+    {
+      throw new RuntimeException("While trying to respond \"" + request + "\"", e);
+    }
   }
   
   public String toString()

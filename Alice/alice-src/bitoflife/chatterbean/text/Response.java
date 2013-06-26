@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -47,13 +47,10 @@ public class Response extends Request
   {
     StringBuilder builder = new StringBuilder();
     String original = getOriginal();
-
-    //fixed by lcl for StringIndexOutOfBoundsException.
-    if (original != null && original.length() > 1)
+    if (original != null)
     {
       builder.append(original);
-      int index = builder.length() - 1;
-      if (builder.charAt(index) != ' ')
+      if (builder.charAt(builder.length() - 1) != ' ')
         builder.append(' ');
     }
     

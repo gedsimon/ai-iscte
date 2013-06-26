@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -75,9 +75,6 @@ public class Match implements Serializable
     this.input = input;
     this.that = that;
     this.topic = topic;
-    //System.out.println(input);
-    //System.out.println(that);
-    //System.out.println(topic);
     setUpMatchPath(input.normalized(), that.normalized(), topic.normalized());
   }
 
@@ -100,9 +97,9 @@ public class Match implements Serializable
     }
     catch (Exception e)
     {
-//      throw new RuntimeException("Source: {\"" + source.getOriginal() + "\", \"" + source.getNormalized() + "\"}\n" +
-//                                 "Begin Index: " + beginIndex + "\n" +
-//                                 "End Index: " + endIndex, e);
+      throw new RuntimeException("Source: {\"" + source.getOriginal() + "\", \"" + source.getNormalized() + "\"}\n" +
+                                 "Begin Index: " + beginIndex + "\n" +
+                                 "End Index: " + endIndex, e);
     }
   }
 
@@ -151,14 +148,7 @@ public class Match implements Serializable
   public String wildcard(Section section, int index)
   {
     List<String> wildcards = sections.get(section);
-    //fixed by lcl
-    if(wildcards.size() == 0)
-    	return "";
-    int i = index - 1;
-    if(i < wildcards.size() && i > -1)
-    	return wildcards.get(i);
-    else 
-    	return "";
+    return wildcards.get(index - 1);
   }
   
   /*

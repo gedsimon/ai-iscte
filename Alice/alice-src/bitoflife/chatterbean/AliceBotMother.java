@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hélio Perroni Filho
+Copyleft (C) 2005 Hï¿½lio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -53,7 +53,7 @@ public class AliceBotMother
     AliceBot bot = parser.parse(new FileInputStream("Bots/context.xml"),
                                 new FileInputStream("Bots/splitters.xml"),
                                 new FileInputStream("Bots/substitutions.xml"),
-                                searcher.search("Bots/Alice", ".*\\.aiml"));
+                                searcher.search("Bots/mydomain", ".*\\.aiml"));
 
     Context context = bot.getContext(); 
     context.outputStream(gossip);

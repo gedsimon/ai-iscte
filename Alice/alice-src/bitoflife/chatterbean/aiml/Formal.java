@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -49,7 +49,6 @@ public class Formal extends TemplateElement
     StringBuffer buffer = new StringBuffer();
     while (m.find())
       m.appendReplacement(buffer, m.group().toUpperCase());
-    	//m.appendReplacement(buffer, m.group());
     m.appendTail(buffer);
     return buffer.toString();
   }

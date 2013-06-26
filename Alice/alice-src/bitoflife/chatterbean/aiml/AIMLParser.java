@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -56,7 +56,7 @@ public class AIMLParser
     try
     {
       for (InputStream aiml : sources)
-        parser.parse(aiml, handler); // what's this?
+        parser.parse(aiml, handler);
 
       graphmaster.append(handler.unload());
     }

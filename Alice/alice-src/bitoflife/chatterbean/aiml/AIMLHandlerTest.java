@@ -18,6 +18,7 @@ import org.xml.sax.helpers.AttributesImpl;
 import junit.framework.TestCase;
 import bitoflife.chatterbean.AliceBot;
 import bitoflife.chatterbean.AliceBotMother;
+import bitoflife.chatterbean.ChatterBean;
 import bitoflife.chatterbean.Context;
 
 public class AIMLHandlerTest extends TestCase

@@ -19,15 +19,13 @@ import org.xml.sax.Attributes;
 import bitoflife.chatterbean.Match;
 
 public class Date extends TemplateElement
-{	
+{
   /*
   Attributes
   */
   
   private final SimpleDateFormat format = new SimpleDateFormat();
 
-  /**date tag format value, add by lcl**/
-  private String formatStr = "";
   /*
   Constructors
   */
@@ -38,7 +36,6 @@ public class Date extends TemplateElement
 
   public Date(Attributes attributes)
   {
-	  formatStr = attributes.getValue(0);
   }
 
   /*
@@ -51,30 +48,15 @@ public class Date extends TemplateElement
   }
 
   public String process(Match match)
-  {	  
-	  java.lang.System.out.println("format:" + this.formatStr);
+  {
     try
     {
-    	format.applyPattern(formatStr);
-    	return format.format(new java.util.Date());
+      format.applyPattern((String) match.getCallback().getContext().property("predicate.dateFormat"));
+      return format.format(new java.util.Date());
     }
-    catch (Exception e)
+    catch (NullPointerException e)
     {
-    	return defaultDate(match);
+      return "";
     }
   }
-  
-  private String defaultDate(Match match)
-  {
-	    try
-	    {
-	      format.applyPattern((String) match.getCallback().getContext().property("predicate.dateFormat"));
-	      return format.format(new java.util.Date());
-	    }
-	    catch (NullPointerException e)
-	    {
-	      return "";
-	    }
-  }
-  
 }

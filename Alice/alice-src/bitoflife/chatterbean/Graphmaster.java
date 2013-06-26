@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -22,8 +22,6 @@ import java.util.Map;
 import bitoflife.chatterbean.aiml.Category;
 import bitoflife.chatterbean.aiml.Pattern;
 
-import co.aiml.*;
-
 public class Graphmaster
 {
   /*
@@ -40,7 +38,7 @@ public class Graphmaster
 
   private Graphmaster(String name)
   {
-    this.name = name.toUpperCase();
+    this.name = name;
   }
 
   /**
@@ -105,10 +103,8 @@ public class Graphmaster
 
   private Category match(Match match, int index)
   {
-    if(isWildcard()){ 
-    	return matchWildcard(match, index);
-    }
-    
+    if(isWildcard()) return matchWildcard(match, index);
+
     if(!name.equals(match.getMatchPath(index))) return null;
 
     int nextIndex = index + 1;
@@ -120,7 +116,6 @@ public class Graphmaster
   private Category matchChildren(Match match, int nextIndex)
   {
     Graphmaster[] nodes = children(match.getMatchPath(nextIndex));
-    
     for(int i = 0, n = nodes.length; i < n; i++)
     {
       Category category = (nodes[i] != null ? nodes[i].match(match, nextIndex) : null);

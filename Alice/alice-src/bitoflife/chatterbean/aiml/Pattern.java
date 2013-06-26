@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -42,7 +42,7 @@ public class Pattern implements AIMLElement
   
   public Pattern(String pattern)
   {
-    this.pattern = pattern.trim().toUpperCase().split(" ");
+    this.pattern = pattern.trim().split(" ");
     hashCode = Arrays.hashCode(this.pattern);
   }
   

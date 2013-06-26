@@ -20,11 +20,11 @@ public class Chat extends JFrame implements ActionListener, KeyListener {
 
     public static final String END = "bye";
     // demo frame for testing
-    private String text = "Ola....";
+    private String text = "Hello....";
     private JTextArea screen = new JTextArea();
     private JScrollPane jscreen = new JScrollPane(screen);
     private JPanel jpinput = new JPanel();
-    private JButton jbinput = new JButton("Diz");
+    private JButton jbinput = new JButton("Say");
     private JTextArea jtinput = new JTextArea();
     // initing alice bot
     private AliceBotMother xmother = new AliceBotMother();
@@ -88,7 +88,7 @@ public class Chat extends JFrame implements ActionListener, KeyListener {
 	// TODO Auto-generated method stub
 	String respon = "Alice: error";
 	respon = xbot.respond(jtinput.getText());
-	text = text + "\nEu: " + jtinput.getText();
+	text = text + "\nMe: " + jtinput.getText();
 	text = text + "\nAlice: " + respon;
 	screen.setText(text);
 	jtinput.setText("");
@@ -99,7 +99,7 @@ public class Chat extends JFrame implements ActionListener, KeyListener {
 	if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 	    String respon = "Alice: error";
 	    respon = xbot.respond(jtinput.getText());
-	    text = text + "\nEu: " + jtinput.getText();
+	    text = text + "\nMe: " + jtinput.getText();
 	    text = text + "\nAlice: " + respon;
 	    screen.setText(text);
 	}

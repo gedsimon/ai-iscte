@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -59,10 +59,9 @@ public class Transformations
     public Mapper(String input)
     {
       char[] chars = input.toCharArray();
-      for (int i = 0, n = chars.length; i < n; i++){
+      for (int i = 0, n = chars.length; i < n; i++)
         if (chars[i] == ' ')
           mappings.add(i);
-      }
     }
 
     /*
@@ -104,7 +103,7 @@ public class Transformations
         if (replace.charAt(j) == ' ' && --n < 0)
           mappings.add(listIndex++, null);
 
-      while (n-- > 0 && mappings.size() > listIndex) //fixed by lcl
+      while (n-- > 0)
         mappings.remove(listIndex);
     }
 
@@ -121,8 +120,8 @@ public class Transformations
   private static final Integer[] INTEGER_ARRAY = new Integer[0];
 
   private final Tokenizer tokenizer;
-  private final Pattern fitting = Pattern.compile("[^A-Z0-9\\u4e00-\\u9fa5]+");
-  private final Pattern wordBreakers = Pattern.compile("([,;:\\uff0c])([A-Za-z\\u4e00-\\u9fa5]|\\s{2,})");
+  private final Pattern fitting = Pattern.compile("[^A-Z0-9]+");
+  private final Pattern wordBreakers = Pattern.compile("([,;:])([A-Za-z]|\\s{2,})");
 
   // The regular expression which will split entries by sentence splitters.
   private final SentenceSplitter splitter;
@@ -178,7 +177,6 @@ public class Transformations
     StringBuffer buffer = new StringBuffer();
     while (matcher.find())
     {
-    	
       String replace = matcher.group(2);
       if (replace.charAt(0) != ' ')
         replace = matcher.group(1) + ' ' + replace;
@@ -196,7 +194,6 @@ public class Transformations
   {
     input = input.toUpperCase();
     Matcher matcher = fitting.matcher(input);
-    
     return matcher.replaceAll(" ");
   }
 
@@ -209,9 +206,8 @@ public class Transformations
     Matcher matcher = fitting.matcher(input);
 
     StringBuffer buffer = new StringBuffer();
-    while (!matcher.hitEnd() && (matcher.find()))
+    while (!matcher.hitEnd() && matcher.find())
     {
-
       mapper.prepare(input, matcher.group(), " ");
       mapper.update(matcher.start());
       matcher.appendReplacement(buffer, " ");
@@ -240,17 +236,14 @@ public class Transformations
     StringBuffer buffer = new StringBuffer();
     for (String find : correction.keySet())
     {
-    	//System.out.println("find:"+find);
-      Pattern pattern = Pattern.compile(find, CASE_INSENSITIVE | UNICODE_CASE );
+      Pattern pattern = Pattern.compile(find, CASE_INSENSITIVE | UNICODE_CASE);
       Matcher matcher = pattern.matcher(input);
-      
       String replace = correction.get(find);
 
       mapper.prepare(input, find, replace);
       while (!matcher.hitEnd() && matcher.find())
       {
         mapper.update(matcher.start() + 1);
-        System.out.println("ss: "+matcher.group());
         matcher.appendReplacement(buffer, replace);
       }
 
@@ -265,10 +258,6 @@ public class Transformations
   private String transform(String input, List<Substitution> substitutions)
   {
     List<String> tokens = tokenizer.tokenize(input);
-    //fixed by lcl
-    if(tokens.size() == 0)
-    	return "";
-    
     outer: for (int i = 0; i < tokens.size();)
     {
       int offset = i;
@@ -290,39 +279,31 @@ public class Transformations
   {
     String original = ' ' + request.getOriginal() + ' ';
     original = original.replaceAll("\\s{2,}", " ");
-
     String input[] = splitter.split(original);
     Sentence[] sentences = new Sentence[input.length];
     for (int i = 0, n = input.length; i < n; i++)
     {
-      
       sentences[i] = new Sentence(input[i]);
-      normalization(sentences[i]);     
+      normalization(sentences[i]);
     }
-    
+
     request.setOriginal(original);
     request.setSentences(sentences);
-
   }
 
   public void normalization(Sentence sentence)
   {
     String input = breakWords(sentence.getOriginal());
-
     input = ' ' + input + ' ';
-    
     input = input.replaceAll("\\s{2,}", " ");
     sentence.setOriginal(input);
 
     Mapper mapper = new Mapper(input);
     input = substitute(input, mapper);
-    //this is the problem
     input = fit(input, mapper);
-       
+
     sentence.setMappings(mapper.toArray());
     sentence.setNormalized(input);
-
-    
   }
 
   public String normalization(String input)

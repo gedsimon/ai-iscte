@@ -1,5 +1,5 @@
 /*
-Copyleft (C) 2005 Hï¿½lio Perroni Filho
+Copyleft (C) 2005 Hélio Perroni Filho
 xperroni@yahoo.com
 ICQ: 2490863
 
@@ -47,10 +47,8 @@ public class Sentence extends TemplateElement
     Pattern p = Pattern.compile("(^\\s*[a-z]|[\\.\\?!]+\\s*[a-z])");
     Matcher m = p.matcher(result);
     StringBuffer buffer = new StringBuffer();
-    while (m.find()){
-        m.appendReplacement(buffer, m.group().toUpperCase());
-    	//m.appendReplacement(buffer, m.group());
-    }
+    while (m.find())
+      m.appendReplacement(buffer, m.group().toUpperCase());
     m.appendTail(buffer);
     return buffer.toString();
   }
